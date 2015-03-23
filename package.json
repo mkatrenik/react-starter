@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "babel-eslint": "^2.0.2",
+    "babelify": "^5.0.4",
+    "barkeep": "^0.3.0",
+    "browserify": "^8.1.3",
+    "envify": "^1.2.1",
+    "es6-shim": "^0.24.0",
+    "eslint": "^0.17.1",
+    "immutable": "^3.6.4",
+    "lodash": "^3.5.0",
+    "react": "^0.13.0"
+  },
+  "devDependencies": {
+    "watchify": "^2.2.1"
+  },
+  "scripts": {
+    "build:deps": "browserify -r immutable -r react -o dist/deps.js",
+    "build:app": "browserify -x react -x immutable -t babelify -d src/index.jsx -o dist/bundle.js",
+    "dev:serve": "barkeep -p 3000 &",
+    "dev:watch": "watchify -t babelify -x react src/index.jsx -o dist/bundle.js -dv",
+    "dev": "npm run build:deps & npm run dev:serve & npm run dev:watch",
+    "build": "npm run build:deps & npm run build:app"
+  }
+}
