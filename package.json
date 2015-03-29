@@ -9,17 +9,20 @@
     "eslint": "^0.17.1",
     "immutable": "^3.6.4",
     "lodash": "^3.5.0",
-    "react": "^0.13.0"
+    "react": "^0.13.0",
+    "watchify": "^2.2.1",
+    "whatwg-fetch": "^0.7.0",
+    "classnames": "^1.1.4",
+    "eslint-plugin-react": "^1.5.0"
   },
   "devDependencies": {
-    "watchify": "^2.2.1"
   },
   "scripts": {
     "build:deps": "browserify -r immutable -r react -o dist/deps.js",
     "build:app": "browserify -x react -x immutable -t babelify -d src/index.jsx -o dist/bundle.js",
-    "dev:serve": "barkeep -p 3000 &",
+    "dev:serve": "barkeep -s -p 3000 &",
     "dev:watch": "watchify -t babelify -x react src/index.jsx -o dist/bundle.js -dv",
-    "dev": "npm run build:deps & npm run dev:serve & npm run dev:watch",
+    "start": "npm run build:deps & npm run dev:serve & npm run dev:watch",
     "build": "npm run build:deps & npm run build:app"
   }
 }

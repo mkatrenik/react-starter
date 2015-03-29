@@ -1,12 +1,13 @@
 # react-starter
 
+For development run:
 ```
-$ npm run dev
+$ npm start
 ```
 and go to localhost:3000
 
 
-or build production version with
+To build production version, run:
 ```
 $ npm run build
 ```
